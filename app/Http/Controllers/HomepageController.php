@@ -5,15 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Categories;
+use App\Models\Product;
 
 class HomepageController extends Controller
 {
     public function index()
     {
         $categories = Categories::all();
+        $products = Product::all(); // Ambil semua produk
         
         return view('web.homepage',[
             'categories' => $categories,
+            'products' => $products, // Kirim produk ke view
             'title'=>'Homepage'
         ]);
     }
